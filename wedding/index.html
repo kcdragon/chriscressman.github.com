@@ -28,14 +28,10 @@
 					font-weight: normal;
 				}
 				td {}
-		.section {
-			padding: 1em 0 0;
-			border-top: 1px solid;
+		.section {}
+		.ui-tabs-hide {
+			display: none;
 		}
-			.section .section {
-				padding: 0;
-				border: none;
-			}
 		.panel {
 			margin: 0 0 1em;
 			padding: 1em 1em 0;
@@ -43,134 +39,194 @@
 			border: 1px solid silver;
 			border-radius: 10px;
 		}
-		.header {}
-			.header h1 {}
-				.header .subtitle {
-					display: block;
-					font-size: smaller;
-				}
-				.header .title {
-					display: block;
-				}
-			.header .date {}
-			.header .location {}
-		.footer {
-			padding: 1em 0 0;
-			border-top: 1px solid;
+		.wrap {
+			margin: 0 auto;
+			width: 480px;
 		}
+			.header {}
+				.header h1 {}
+					.header .subtitle {
+						display: block;
+						font-size: smaller;
+					}
+					.header .title {
+						display: block;
+					}
+				.header .date {}
+				.header .location {}
+			.content {
+				padding: 1em 0;
+				overflow: hidden;
+				zoom: 1;
+			}
+				.content .nav {
+					margin: 0;
+					padding-bottom: 1em;
+					width: 70px;
+					float: left;
+					list-style: none;
+				}
+				.content .section {
+					margin: 0 0 0 120px;
+				}
+			.footer {}
 	</style>
 </head>
 <body>
-	<div class="header">
-		<h1>
-			<span class="subtitle">The Wedding of</span>
-			<span class="title">Michelle Todd &amp; Chris Cressman</span>
-		</h1>
-		<p class="date">Sunday, September 2, 2012</p>
-		<p class="location">Joseph Ambler Inn, North Wales, Pennsylvania</p>
-	</div>
-	<div class="panel">
-		<h2>Draft</h2>
-		<p>This website is a draft. Please check back later for more accurate information.</p>
-	</div>
-	<div id="details" class="section">
-		<h2>From the Bride &amp; Groom</h2>
-		<p>Dear invited guests,</p>
-		<p>Please join us at our wedding on Sunday, September 2, 2012. The entire event (ceremony, cocktail hour, and reception) will be held at <a href="#location">Joseph Ambler Inn</a>. A limited number of <a href="#rooms">overnight rooms</a> will be available at the same location.</p>
-		<p>Our wedding date coincides with Labor Day weekend, so if you plan to attend please mark your calendar early, and thank you for celebrating with us!</p>
-		<p>Love,<br />Michelle &amp; Chris</p>
-	</div>
-	<div id="schedule" class="section">
-		<h2>Schedule</h2>
-		<p>The schedule for the day is as follows:</p>
-		<table>
-			<tbody>
-				<tr>
-					<th>Ceremony</th>
-					<td>5pm&ndash;5:30pm</td>
-				</tr>
-				<tr>
-					<th>Cocktail Hour</th>
-					<td>5:30pm&ndash;6:30pm</td>
-				</tr>
-				<tr>
-					<th>Reception</th>
-					<td>6:30pm&ndash;10:30pm</td>
-				</tr>
-			</tbody>
-		</table>
-		<p>All events will be held at <a href="#location">Joseph Ambler Inn</a>.</p>
-	</div>
-	<div id="location" class="section">
-		<h2>Location &amp; Directions</h2>
-		<p>Joseph Ambler Inn<br />1005 Horsham Road, North Wales, PA 19454</p>
-		<table>
-			<tbody>
-				<tr>
-					<th>Phone</th>
-					<td>(215) 362-7500</td>
-				</tr>
-				<tr>
-					<th>Email</th>
-					<td>
-						<a href="mailto:info@josephamblerinn.com">info@josephamblerinn.com</a>
-					</td>
-				</tr>
-				<tr>
-					<th>Website</th>
-					<td>
-						<a href="http://www.josephamblerinn.com">www.josephamblerinn.com</a>
-					</td>
-				</tr>
-			</tbody>
-		</table>
-		<p>
-			<a href="#">
-				<img alt="" src="http://maps.googleapis.com/maps/api/staticmap?center=1005+Horsham+Rd+North+Wales+PA&amp;zoom=14&amp;size=400x300&amp;sensor=false" />
-			</a>
-		</p>
-		<p>
-			<a href="#">View larger map &amp; get directions</a>
-		</p>
-	</div>
-	<div id="rooms" class="section">
-		<h2>Overnight Rooms</h2>
-		<p>Rates for rooms.
-		<p>When guests call for hotel room, they give name, email, and credit card info. Credit card will not be charged right away.
-		<p>We have a reserved block of rooms at a special rate. Can't choose your room.
-	</div>
-	<div id="rsvp" class="section">
-		<h2>RSVP</h2>
-		<p>RSVP/regret form.
-	</div>
-	<div id="gifts" class="section">
-		<h2>Gift Registries</h2>
-		<p>Links to registries.
-		<p>Mention of cash gifts for honeymoon and house.
-	</div>
-	<div id="contact" class="section">
-		<h2>Our Contact Info</h2>
-		<div id="michelle" class="section">
-			<h3>Michelle Todd</h3>
-			<p>https://www.facebook.com/michelletodd
-			<p>michelle@michellecressman.com</p>
+	<div class="wrap">
+		<div class="header panel">
+			<h1>
+				<span class="subtitle">The Wedding of</span>
+				<span class="title">Michelle Todd &amp; Chris Cressman</span>
+			</h1>
+			<p class="date">Sunday, September 2, 2012</p>
+			<p class="location">Joseph Ambler Inn, North Wales, Pennsylvania</p>
 		</div>
-		<div id="chris" class="section">
-			<h3>Chris Cressman</h3>
-			<p>https://www.facebook.com/chriscressman
-			<p>chris@chriscressman.com</p>
-			<p>Print all wedding info</p>
+		<div class="content">
+			<ul class="nav panel">
+				<li>
+					<a href="#home">Home</a>
+				</li>
+				<li>
+					<a href="#schedule">Schedule</a>
+				</li>
+				<li>
+					<a href="#location">Location</a>
+				</li>
+				<li>
+					<a href="#rooms">Rooms</a>
+				</li>
+				<li>
+					<a href="#contact">Contact</a>
+				</li>
+			</ul>
+			<div id="home" class="section">
+				<h2>From the Bride &amp; Groom</h2>
+				<p>Dear invited guests,</p>
+				<p>Please join us at our wedding on Sunday, September 2, 2012. The entire event (ceremony, cocktail hour, and reception) will be held at <a href="#location">Joseph Ambler Inn</a>. A limited number of <a href="#rooms">overnight rooms</a> will be available at the same location.</p>
+				<p>Our wedding date coincides with Labor Day weekend, so if you plan to attend please mark your calendar early, and thank you for celebrating with us!</p>
+				<p>Love,<br />Michelle &amp; Chris</p>
+			</div>
+			<div id="schedule" class="section">
+				<h2>Schedule</h2>
+				<p>The schedule for the day is as follows:</p>
+				<table>
+					<tbody>
+						<tr>
+							<th>Ceremony</th>
+							<td>5pm&ndash;5:30pm</td>
+						</tr>
+						<tr>
+							<th>Cocktail Hour</th>
+							<td>5:30pm&ndash;6:30pm</td>
+						</tr>
+						<tr>
+							<th>Reception</th>
+							<td>6:30pm&ndash;10:30pm</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>All events will be held at <a href="#location">Joseph Ambler Inn</a>.</p>
+			</div>
+			<div id="location" class="section">
+				<h2>Location &amp; Directions</h2>
+				<p>Joseph Ambler Inn<br />1005 Horsham Road, North Wales, PA 19454</p>
+				<table>
+					<tbody>
+						<tr>
+							<th>Phone</th>
+							<td>(215) 362-7500</td>
+						</tr>
+						<tr>
+							<th>Email</th>
+							<td>
+								<a href="mailto:info@josephamblerinn.com">info@josephamblerinn.com</a>
+							</td>
+						</tr>
+						<tr>
+							<th>Website</th>
+							<td>
+								<a target="_blank" href="http://www.josephamblerinn.com">www.josephamblerinn.com</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<p>
+					<a target="blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">
+						<img alt="View larger map &amp; get directions" src="http://maps.google.com/maps/api/staticmap?center=40.237933,-75.227594&amp;zoom=14&amp;markers=40.210940,-75.278232|40.237327,-75.227874&amp;size=340x240&amp;sensor=false" />
+					</a>
+				</p>
+				<p>
+					<a target="_blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">View larger map &amp; get directions</a>
+				</p>
+			</div>
+			<div id="rooms" class="section">
+				<h2>Overnight Rooms</h2>
+				<p>A limited number of overnight rooms will be available at <a href="#location">Joseph Ambler Inn</a> for our wedding at a rate of $135.</p>
+				<p>In order to get this special rate, please contact Joseph Ambler Inn and ask to reserve a room for the Michelle Todd - Chris Cressman wedding.</p>
+			</div>
+			<div id="contact" class="section">
+				<h2>Contact the Bride &amp; Groom</h2>
+				<div id="michelle" class="subsection">
+					<h3>Michelle Todd</h3>
+					<table>
+						<tbody>
+							<tr>
+								<th>Email</th>
+								<td>
+									<a href="mailto:michelle@michellecressman.com">michelle@michellecressman.com</a>
+								</td>
+							</tr>
+							<tr>
+								<th>Facebook</th>
+								<td>
+									<a target="_blank" href="https://www.facebook.com/michelletodd">www.facebook.com/michelletodd</a>
+								</td>
+							</tr>
+							<tr>
+								<th>Phone</th>
+								<td>(267) 304-6523</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div id="chris" class="subsection">
+					<h3>Chris Cressman</h3>
+					<table>
+						<tbody>
+							<tr>
+								<th>Email</th>
+								<td>
+									<a href="mailto:chris@chriscressman.com">chris@chriscressman.com</a>
+								</td>
+							</tr>
+							<tr>
+								<th>Facebook</th>
+								<td>
+									<a target="_blank" href="https://www.facebook.com/chriscressman">www.facebook.com/chriscressman</a>
+								</td>
+							</tr>
+							<tr>
+								<th>Phone</th>
+								<td>(215) 431-4632</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+		<div class="footer panel">
+			<!--
+			<p><a class="print" role="button" href="#">Print wedding info</a> (1 page)</p>
+			-->
+			<p><a href="#contact">Contact Michelle &amp; Chris</a></p>
+			<p>Please check back for the latest information</p>
 		</div>
 	</div>
-	<div class="footer">
-		<p><a class="print" role="button" href="#">Print wedding info</a> (1 page)</p>
-		<p><a href="#contact">Contact Michelle &amp; Chris</a></p>
-		<p>Please check back for the latest information</p>
-	</div>
-	<div class="panel">
-		<h2>To Do</h2>
-		<p>Confirm content with Wendy, Teg, and Keenan.</p>
-		<p>Add Google analytics to home page and wedding page.</p>
-	</div>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script>
+	<script>
+		$('div.content').tabs();
+	</script>
 </body>
 </html>
