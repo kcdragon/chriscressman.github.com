@@ -5,64 +5,151 @@
 	<title>The Wedding of Michelle Todd &amp; Chris Cressman</title>
 	<script>document.getElementsByTagName('html')[0].className = 'js';</script>
 	<style>
+		/*
+		Green:			#9ca139
+		Yellow:			#e2c04b
+		Orange:			#c37e2c
+		Maroon:			#86201c
+		Red:			#bb352a
+		Dark brown:		#4c3026
+		Medium brown:	#5c3a2e
+		*/
+
+		@font-face {
+			font-family: 'JosefinSlabBold';
+			src: url('fonts/JosefinSlab-Bold-webfont.eot');
+			src: url('fonts/JosefinSlab-Bold-webfont.eot?#iefix') format('embedded-opentype'),
+				 url('fonts/JosefinSlab-Bold-webfont.woff') format('woff'),
+				 url('fonts/JosefinSlab-Bold-webfont.ttf') format('truetype'),
+				 url('fonts/JosefinSlab-Bold-webfont.svg#JosefinSlabBold') format('svg');
+			font-weight: bold;
+			font-style: normal;
+		}
+
+		@font-face {
+			font-family: 'OpenSans';
+			src: url('fonts/OpenSans-Regular-webfont.eot');
+			src: url('fonts/OpenSans-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+				 url('fonts/OpenSans-Regular-webfont.woff') format('woff'),
+				 url('fonts/OpenSans-Regular-webfont.ttf') format('truetype'),
+				 url('fonts/OpenSans-Regular-webfont.svg#OpenSansRegular') format('svg');
+			font-weight: normal;
+			font-style: normal;
+		}
+
 		@media screen {
 			body {
 				margin: 0;
 				padding: 0;
-				font: 13px/1.3 sans-serif;
+				font: 13px/1.3 'OpenSans', sans-serif;
 				text-align: center;
 				color: #fff;
 				background-color: #4c3026;
 			}
 			h1 {
-				margin: 0 0 0.5em;
+				margin: 0 0 6px;
+				font-family: 'JosefinSlabBold';
+				font-size: 36px;
+				line-height: 1.2;
 			}
 			h2 {
-				margin: 0 0 0.75em;
+				margin: 0 0 18px;
+				font-family: 'JosefinSlabBold';
+				font-size: 24px;
 			}
 			h3 {
-				margin: 0 0 0.75em;
+				margin: 0 0 6px;
+				font-family: 'OpenSans';
+				font-size: 15px;
+				font-weight: normal;
 			}
 			p {
-				margin: 0 0 1em;
+				margin: 0 0 12px;
 			}
 			a {
-				color: #c7812c;
+				text-decoration: none;
+				color: #e2c04b;
 			}
+			a:hover {
+				text-decoration: underline;
+			}
+			.loose {
+				margin: 0 0 24px;
+			}
+			.tight {
+				margin: 0 0 6px;
+			}
+			.image {
+				position: relative;
+				border: 3px solid #c7812c;
+			}
+				.image a {
+					display: block;
+				}
+					.image img {
+						display: block;
+					}
+					.imgdecor {
+						position: absolute;
+						width: 4px;
+						height: 4px;
+						background: #c7812c;
+						overflow: hidden;
+					}
+					.imgdecor-1 { left: 0; top: 0; }
+					.imgdecor-2 { right: 0; top: 0; }
+					.imgdecor-3 { left: 0; bottom: 0; }
+					.imgdecor-4 { right: 0; bottom: 0; }
+
 			.decor {
 				padding: 40px 0 0;
-				background: url(bg.png) 50% -68px repeat-x; /* 12px tall */
+				background: url(images/bg.png) 50% -68px repeat-x; /* 12px tall */
 			}
 				.wrap {
 					margin: 0 auto;
-					width: 480px;
+					min-width: 320px;
+					max-width: 640px;
 				}
-					.header {}
+					.header {
+						padding: 0 0 16px;
+					}
 						.header h1 {}
-							.header .subtitle {
+							.header small {
 								display: block;
-								font-size: smaller;
+								font-size: 20px;
 							}
-							.header .title {
-								display: block;
+							.header span {
+								white-space: nowrap;
 							}
-						.header .date {}
-						.header .location {}
+						.header p {
+							margin: 0 0 6px;
+							font-size: 12px;
+						}
 					.nav {
 						margin: 0;
-						padding: 10px;
-						border-top: 3px solid #4c3026;
-						border-bottom: 3px solid #4c3026;
+						padding: 4px 0;
+						border-top: 3px solid #5c3a2e;
+						border-bottom: 3px solid #5c3a2e;
 						list-style: none;
 					}
 						.nav li {
 							display: inline;
+							margin: 0 5px;
+							line-height: 1.8;
 						}
 							.nav a {}
 							.nav .selected a {
 								color: #939537;
+								cursor: default;
 							}
-					.content {}
+							.nav .selected a:hover {
+								text-decoration: none;
+							}
+					.content {
+						margin: 0 auto;
+						padding: 16px 0 6px;
+						width: 320px;
+					}
 						.content .section {}
 						.js .content .section {
 							display: none;
@@ -71,15 +158,44 @@
 							display: block;
 						}
 					.footer {
-						padding: 10px;
-						border-top: 3px solid #4c3026;
+						padding: 16px 0;
+						border-top: 3px solid #5c3a2e;
 					}
 		}
 		@media print {
 			body {
 				margin: 0;
 				padding: 0;
+				font-size: 11pt;
+				color: #000;
+			}
+			h1 {
+				margin: 0 0 11pt;
+				font-size: 15pt;
+				page-break-after: avoid;
+			}
+			h2 {
+				margin: 0 0 11pt;
+				font-size: 13pt;
+				page-break-after: avoid;
+			}
+			h3 {
+				margin: 0 0 6pt;
 				font-size: 12pt;
+				page-break-after: avoid;
+			}
+			p {
+				margin: 0 0 6pt;
+			}
+			a {
+				color: #000;
+				text-decoration: none;
+			}
+			.noprint {
+				display: none;
+			}
+			.tight {
+				margin: 0;
 			}
 			.header {}
 				.header p {
@@ -88,6 +204,13 @@
 			.nav {
 				display: none;
 			}
+			.content {}
+				.content .section {
+					page-break-inside: avoid;
+				}
+				#home .image {
+					display: none;
+				}
 			.footer {
 				display: none;
 			}
@@ -99,11 +222,13 @@
 		<div class="wrap">
 			<div class="header">
 				<h1>
-					<span class="subtitle">The Wedding of</span>
-					<span class="title">Michelle Todd &amp; Chris Cressman</span>
+					<small>The Wedding of</small>
+					<span>Michelle Todd</span>
+					&amp;
+					<span>Chris Cressman</span>
 				</h1>
-				<p class="date">Sunday, September 2, 2012</p>
-				<p class="location">Joseph Ambler Inn, North Wales, Pennsylvania</p>
+				<p>Sunday, September 2, 2012</p>
+				<p>Joseph Ambler Inn, North Wales, Pennsylvania</p>
 			</div>
 			<ul class="nav">
 				<li>
@@ -125,6 +250,13 @@
 			<div class="content">
 				<div id="home" class="section">
 					<h2>From the Bride &amp; Groom</h2>
+					<p class="image">
+						<img alt="" src="images/michelle-and-chris.jpg" />
+						<span class="imgdecor-1 imgdecor"></span>
+						<span class="imgdecor-2 imgdecor"></span>
+						<span class="imgdecor-3 imgdecor"></span>
+						<span class="imgdecor-4 imgdecor"></span>
+					</p>
 					<p>Dear invited guests,</p>
 					<p>Please join us at our wedding on Sunday, September 2, 2012. The entire event (ceremony, cocktail hour, and reception) will be held at <a href="#location">Joseph Ambler Inn</a>. A limited number of <a href="#rooms">overnight rooms</a> will be available at the same location.</p>
 					<p>Our wedding date coincides with Labor Day weekend, so if you plan to attend please mark your calendar early, and thank you for celebrating with us!</p>
@@ -132,54 +264,42 @@
 				</div>
 				<div id="schedule" class="section">
 					<h2>Schedule</h2>
-					<p>The schedule for the day is as follows:</p>
-					<table>
-						<tbody>
-							<tr>
-								<th>Ceremony</th>
-								<td>5pm&ndash;5:30pm</td>
-							</tr>
-							<tr>
-								<th>Cocktail Hour</th>
-								<td>5:30pm&ndash;6:30pm</td>
-							</tr>
-							<tr>
-								<th>Reception</th>
-								<td>6:30pm&ndash;10:30pm</td>
-							</tr>
-						</tbody>
-					</table>
+					<p class="loose">The schedule for the day is as follows:</p>
+					<p class="tight">
+						<span>Ceremony</span>
+						<span>5pm&ndash;5:30pm</span>
+					</p>
+					<p class="tight">
+						<span>Cocktail Hour</span>
+						<span>5:30pm&ndash;6:30pm</span>
+					</p>
+					<p class="loose">
+						<span>Reception</span>
+						<span>6:30pm&ndash;10:30pm</span>
+					</p>
 					<p>All events will be held at <a href="#location">Joseph Ambler Inn</a>.</p>
 				</div>
 				<div id="location" class="section">
 					<h2>Location &amp; Directions</h2>
-					<p>Joseph Ambler Inn<br />1005 Horsham Road, North Wales, PA 19454</p>
-					<table>
-						<tbody>
-							<tr>
-								<th>Phone</th>
-								<td>(215) 362-7500</td>
-							</tr>
-							<tr>
-								<th>Email</th>
-								<td>
-									<a href="mailto:info@josephamblerinn.com">info@josephamblerinn.com</a>
-								</td>
-							</tr>
-							<tr>
-								<th>Website</th>
-								<td>
-									<a target="_blank" href="http://www.josephamblerinn.com">www.josephamblerinn.com</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-					<p>
-						<a target="blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">
-							<img alt="View larger map &amp; get directions" src="http://maps.google.com/maps/api/staticmap?center=40.237933,-75.227594&amp;zoom=14&amp;markers=40.210940,-75.278232|40.237327,-75.227874&amp;size=340x240&amp;sensor=false" />
-						</a>
+					<p class="tight">Joseph Ambler Inn</p>
+					<p class="tight">1005 Horsham Road, North Wales, PA 19454</p>
+					<p class="tight">(215) 362-7500</p>
+					<p class="tight">
+						<a href="mailto:info@josephamblerinn.com">info@josephamblerinn.com</a>
 					</p>
-					<p>
+					<p class="loose">
+						<a target="_blank" href="http://www.josephamblerinn.com">www.josephamblerinn.com</a>
+					</p>
+					<p class="image loose">
+						<a target="blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">
+							<img alt="View larger map &amp; get directions" src="http://maps.google.com/maps/api/staticmap?center=40.239571,-75.227337&amp;zoom=13&amp;markers=size:mid|40.237327,-75.227874&amp;size=314x251&amp;sensor=false" />
+						</a>
+						<span class="imgdecor-1 imgdecor"></span>
+						<span class="imgdecor-2 imgdecor"></span>
+						<span class="imgdecor-3 imgdecor"></span>
+						<span class="imgdecor-4 imgdecor"></span>
+					</p>
+					<p class="noprint">
 						<a target="_blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">View larger map &amp; get directions</a>
 					</p>
 				</div>
@@ -192,33 +312,20 @@
 					<h2>Contact the Bride &amp; Groom</h2>
 					<div id="michelle" class="subsection">
 						<h3>Michelle Todd</h3>
-						<table>
-							<tbody>
-								<tr>
-									<th>Email</th>
-									<td>
-										<a href="mailto:michelle@michellecressman.com">michelle@michellecressman.com</a>
-									</td>
-								</tr>
-								<tr>
-									<th>Facebook</th>
-									<td>
-										<a target="_blank" href="https://www.facebook.com/michelletodd">www.facebook.com/michelletodd</a>
-									</td>
-								</tr>
-								<tr>
-									<th>Phone</th>
-									<td>(267) 304-6523</td>
-								</tr>
-							</tbody>
-						</table>
+						<p class="tight">
+							<a href="mailto:michelle@michellecressman.com">michelle@michellecressman.com</a>
+						</p>
+						<p class="tight">
+							<a target="_blank" href="https://www.facebook.com/michelletodd">www.facebook.com/michelletodd</a>
+						</p>
+						<p class="loose">(267) 304-6523</p>
 					</div>
 					<div id="chris" class="subsection">
 						<h3>Chris Cressman</h3>
-						<p>
+						<p class="tight">
 							<a href="mailto:chris@chriscressman.com">chris@chriscressman.com</a>
 						</p>
-						<p>
+						<p class="tight">
 							<a target="_blank" href="https://www.facebook.com/chriscressman">www.facebook.com/chriscressman</a>
 						</p>
 						<p>(215) 431-4632</p>
