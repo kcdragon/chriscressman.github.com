@@ -5,93 +5,97 @@
 	<title>The Wedding of Michelle Todd &amp; Chris Cressman</title>
 	<script>document.getElementsByTagName('html')[0].className = 'js';</script>
 	<style>
-		body {
-			margin: 0;
-			padding: 0;
-			font: 12px/1.3 sans-serif;
-			text-align: center;
-			color: #fff;
-			background-color: #4c3026;
-		}
-		h1 {
-			margin: 0 0 0.5em;
-		}
-		h2 {
-			margin: 0 0 0.75em;
-		}
-		h3 {
-			margin: 0 0 0.75em;
-		}
-		p {
-			margin: 0 0 1em;
-		}
-		a {
-			color: #c7812c;
-		}
-		table {
-			margin: 0 0 1em;
-			display: inline-table;
-		}
-			tr {}
-				th {
-					text-align: left;
-					font-weight: normal;
+		@media screen {
+			body {
+				margin: 0;
+				padding: 0;
+				font: 13px/1.3 sans-serif;
+				text-align: center;
+				color: #fff;
+				background-color: #4c3026;
+			}
+			h1 {
+				margin: 0 0 0.5em;
+			}
+			h2 {
+				margin: 0 0 0.75em;
+			}
+			h3 {
+				margin: 0 0 0.75em;
+			}
+			p {
+				margin: 0 0 1em;
+			}
+			a {
+				color: #c7812c;
+			}
+			.decor {
+				padding: 40px 0 0;
+				background: url(bg.png) 50% -68px repeat-x; /* 12px tall */
+			}
+				.wrap {
+					margin: 0 auto;
+					width: 480px;
 				}
-				td {}
-		.section {}
-		.ui-tabs-hide {
-			display: none;
+					.header {}
+						.header h1 {}
+							.header .subtitle {
+								display: block;
+								font-size: smaller;
+							}
+							.header .title {
+								display: block;
+							}
+						.header .date {}
+						.header .location {}
+					.nav {
+						margin: 0;
+						padding: 10px;
+						border-top: 3px solid #4c3026;
+						border-bottom: 3px solid #4c3026;
+						list-style: none;
+					}
+						.nav li {
+							display: inline;
+						}
+							.nav a {}
+							.nav .selected a {
+								color: #939537;
+							}
+					.content {}
+						.content .section {}
+						.js .content .section {
+							display: none;
+						}
+						.js .content .selected {
+							display: block;
+						}
+					.footer {
+						padding: 10px;
+						border-top: 3px solid #4c3026;
+					}
 		}
-		.bg {
-			padding: 40px 0 0;
-			background: url(bg.png) 50% -49px repeat-x;
-		}
-		.wrap {
-			margin: 0 auto;
-			width: 480px;
-		}
+		@media print {
+			body {
+				margin: 0;
+				padding: 0;
+				font-size: 12pt;
+			}
 			.header {}
-				.header h1 {}
-					.header .subtitle {
-						display: block;
-						font-size: smaller;
-					}
-					.header .title {
-						display: block;
-					}
-				.header .date {}
-				.header .location {}
-			.content {
-				padding: 1em 0;
-				overflow: hidden;
-				zoom: 1;
-			}
-				.content .nav {
-					margin: 0;
-					padding: 10px;
-					border-top: 3px solid #4c3026;
-					border-bottom: 3px solid #4c3026;
-					list-style: none;
+				.header p {
+					display: none;
 				}
-					.content .nav li {
-						display: inline;
-					}
-					.content .nav .selected a {
-						color: #939537;
-					}
-				.content .main {}
-					.content .section {}
-					.js .content .section {
-						display: none;
-					}
-			.footer {
-				padding: 10px;
-				border-top: 3px solid #4c3026;
+			.nav {
+				display: none;
 			}
+			.footer {
+				display: none;
+			}
+		}
 	</style>
 </head>
 <body>
-	<div class="bg">
+	<div class="decor">
 		<div class="wrap">
 			<div class="header">
 				<h1>
@@ -101,146 +105,127 @@
 				<p class="date">Sunday, September 2, 2012</p>
 				<p class="location">Joseph Ambler Inn, North Wales, Pennsylvania</p>
 			</div>
+			<ul class="nav">
+				<li>
+					<a href="#home">Home</a>
+				</li>
+				<li>
+					<a href="#schedule">Schedule</a>
+				</li>
+				<li>
+					<a href="#location">Location</a>
+				</li>
+				<li>
+					<a href="#rooms">Rooms</a>
+				</li>
+				<li>
+					<a href="#contact">Contact</a>
+				</li>
+			</ul>
 			<div class="content">
-				<ul class="nav">
-					<li>
-						<a href="#home">Home</a>
-					</li>
-					<li>
-						<a href="#schedule">Schedule</a>
-					</li>
-					<li>
-						<a href="#location">Location</a>
-					</li>
-					<li>
-						<a href="#rooms">Rooms</a>
-					</li>
-					<li>
-						<a href="#contact">Contact</a>
-					</li>
-				</ul>
-				<div class="main">
-					<div id="home" class="section">
-						<h2>From the Bride &amp; Groom</h2>
-						<p>Dear invited guests,</p>
-						<p>Please join us at our wedding on Sunday, September 2, 2012. The entire event (ceremony, cocktail hour, and reception) will be held at <a href="#location">Joseph Ambler Inn</a>. A limited number of <a href="#rooms">overnight rooms</a> will be available at the same location.</p>
-						<p>Our wedding date coincides with Labor Day weekend, so if you plan to attend please mark your calendar early, and thank you for celebrating with us!</p>
-						<p>Love,<br />Michelle &amp; Chris</p>
-					</div>
-					<div id="schedule" class="section">
-						<h2>Schedule</h2>
-						<p>The schedule for the day is as follows:</p>
+				<div id="home" class="section">
+					<h2>From the Bride &amp; Groom</h2>
+					<p>Dear invited guests,</p>
+					<p>Please join us at our wedding on Sunday, September 2, 2012. The entire event (ceremony, cocktail hour, and reception) will be held at <a href="#location">Joseph Ambler Inn</a>. A limited number of <a href="#rooms">overnight rooms</a> will be available at the same location.</p>
+					<p>Our wedding date coincides with Labor Day weekend, so if you plan to attend please mark your calendar early, and thank you for celebrating with us!</p>
+					<p>Love,<br />Michelle &amp; Chris</p>
+				</div>
+				<div id="schedule" class="section">
+					<h2>Schedule</h2>
+					<p>The schedule for the day is as follows:</p>
+					<table>
+						<tbody>
+							<tr>
+								<th>Ceremony</th>
+								<td>5pm&ndash;5:30pm</td>
+							</tr>
+							<tr>
+								<th>Cocktail Hour</th>
+								<td>5:30pm&ndash;6:30pm</td>
+							</tr>
+							<tr>
+								<th>Reception</th>
+								<td>6:30pm&ndash;10:30pm</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>All events will be held at <a href="#location">Joseph Ambler Inn</a>.</p>
+				</div>
+				<div id="location" class="section">
+					<h2>Location &amp; Directions</h2>
+					<p>Joseph Ambler Inn<br />1005 Horsham Road, North Wales, PA 19454</p>
+					<table>
+						<tbody>
+							<tr>
+								<th>Phone</th>
+								<td>(215) 362-7500</td>
+							</tr>
+							<tr>
+								<th>Email</th>
+								<td>
+									<a href="mailto:info@josephamblerinn.com">info@josephamblerinn.com</a>
+								</td>
+							</tr>
+							<tr>
+								<th>Website</th>
+								<td>
+									<a target="_blank" href="http://www.josephamblerinn.com">www.josephamblerinn.com</a>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<p>
+						<a target="blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">
+							<img alt="View larger map &amp; get directions" src="http://maps.google.com/maps/api/staticmap?center=40.237933,-75.227594&amp;zoom=14&amp;markers=40.210940,-75.278232|40.237327,-75.227874&amp;size=340x240&amp;sensor=false" />
+						</a>
+					</p>
+					<p>
+						<a target="_blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">View larger map &amp; get directions</a>
+					</p>
+				</div>
+				<div id="rooms" class="section">
+					<h2>Overnight Rooms</h2>
+					<p>A limited number of overnight rooms will be available at <a href="#location">Joseph Ambler Inn</a> for our wedding at a rate of $135.</p>
+					<p>In order to get this special rate, please contact Joseph Ambler Inn and ask to reserve a room for the Michelle Todd - Chris Cressman wedding.</p>
+				</div>
+				<div id="contact" class="section">
+					<h2>Contact the Bride &amp; Groom</h2>
+					<div id="michelle" class="subsection">
+						<h3>Michelle Todd</h3>
 						<table>
 							<tbody>
-								<tr>
-									<th>Ceremony</th>
-									<td>5pm&ndash;5:30pm</td>
-								</tr>
-								<tr>
-									<th>Cocktail Hour</th>
-									<td>5:30pm&ndash;6:30pm</td>
-								</tr>
-								<tr>
-									<th>Reception</th>
-									<td>6:30pm&ndash;10:30pm</td>
-								</tr>
-							</tbody>
-						</table>
-						<p>All events will be held at <a href="#location">Joseph Ambler Inn</a>.</p>
-					</div>
-					<div id="location" class="section">
-						<h2>Location &amp; Directions</h2>
-						<p>Joseph Ambler Inn<br />1005 Horsham Road, North Wales, PA 19454</p>
-						<table>
-							<tbody>
-								<tr>
-									<th>Phone</th>
-									<td>(215) 362-7500</td>
-								</tr>
 								<tr>
 									<th>Email</th>
 									<td>
-										<a href="mailto:info@josephamblerinn.com">info@josephamblerinn.com</a>
+										<a href="mailto:michelle@michellecressman.com">michelle@michellecressman.com</a>
 									</td>
 								</tr>
 								<tr>
-									<th>Website</th>
+									<th>Facebook</th>
 									<td>
-										<a target="_blank" href="http://www.josephamblerinn.com">www.josephamblerinn.com</a>
+										<a target="_blank" href="https://www.facebook.com/michelletodd">www.facebook.com/michelletodd</a>
 									</td>
+								</tr>
+								<tr>
+									<th>Phone</th>
+									<td>(267) 304-6523</td>
 								</tr>
 							</tbody>
 						</table>
+					</div>
+					<div id="chris" class="subsection">
+						<h3>Chris Cressman</h3>
 						<p>
-							<a target="blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">
-								<img alt="View larger map &amp; get directions" src="http://maps.google.com/maps/api/staticmap?center=40.237933,-75.227594&amp;zoom=14&amp;markers=40.210940,-75.278232|40.237327,-75.227874&amp;size=340x240&amp;sensor=false" />
-							</a>
+							<a href="mailto:chris@chriscressman.com">chris@chriscressman.com</a>
 						</p>
 						<p>
-							<a target="_blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">View larger map &amp; get directions</a>
+							<a target="_blank" href="https://www.facebook.com/chriscressman">www.facebook.com/chriscressman</a>
 						</p>
-					</div>
-					<div id="rooms" class="section">
-						<h2>Overnight Rooms</h2>
-						<p>A limited number of overnight rooms will be available at <a href="#location">Joseph Ambler Inn</a> for our wedding at a rate of $135.</p>
-						<p>In order to get this special rate, please contact Joseph Ambler Inn and ask to reserve a room for the Michelle Todd - Chris Cressman wedding.</p>
-					</div>
-					<div id="contact" class="section">
-						<h2>Contact the Bride &amp; Groom</h2>
-						<div id="michelle" class="subsection">
-							<h3>Michelle Todd</h3>
-							<table>
-								<tbody>
-									<tr>
-										<th>Email</th>
-										<td>
-											<a href="mailto:michelle@michellecressman.com">michelle@michellecressman.com</a>
-										</td>
-									</tr>
-									<tr>
-										<th>Facebook</th>
-										<td>
-											<a target="_blank" href="https://www.facebook.com/michelletodd">www.facebook.com/michelletodd</a>
-										</td>
-									</tr>
-									<tr>
-										<th>Phone</th>
-										<td>(267) 304-6523</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
-						<div id="chris" class="subsection">
-							<h3>Chris Cressman</h3>
-							<table>
-								<tbody>
-									<tr>
-										<th>Email</th>
-										<td>
-											<a href="mailto:chris@chriscressman.com">chris@chriscressman.com</a>
-										</td>
-									</tr>
-									<tr>
-										<th>Facebook</th>
-										<td>
-											<a target="_blank" href="https://www.facebook.com/chriscressman">www.facebook.com/chriscressman</a>
-										</td>
-									</tr>
-									<tr>
-										<th>Phone</th>
-										<td>(215) 431-4632</td>
-									</tr>
-								</tbody>
-							</table>
-						</div>
+						<p>(215) 431-4632</p>
 					</div>
 				</div>
 			</div>
 			<div class="footer">
-				<!--
-				<p><a class="print" role="button" href="#">Print wedding info</a> (1 page)</p>
-				-->
-				<p><a href="#contact">Contact Michelle &amp; Chris</a></p>
 				<p>Please check back for the latest information</p>
 			</div>
 		</div>
@@ -259,72 +244,107 @@
 		
 		(function($){
 
-			// Define functions
-			function togglePanels(){
-				$('.section')
-					.hide()
-					.filter(location.hash)
-						.show();
-				$('.nav a')
-					.filter(function(){return this.hash === location.hash})
-						.parent()
-							.addClass('selected')
-							.siblings()
-								.removeClass('selected');
-			}
+			function paginate(){
 
-			// Attach events
-			$(window).hashchange(function(){
-				togglePanels();
-			});
-			
-			$('a').on('click',function(e){
-				if (this.hash && this.hash === location.hash) {
-					e.preventDefault();
+				// Define helper functions
+				function togglePanels(){
+					$('.section')
+						.removeClass('selected')
+						.filter(location.hash)
+							.addClass('selected');
+					$('.nav a')
+						.filter(function(){return this.hash === location.hash})
+							.parent()
+								.addClass('selected')
+								.siblings()
+									.removeClass('selected');
 				}
-			});
+	
+				// Attach events
+				$(window).hashchange(function(){
+					togglePanels();
+				});
+				
+				$('a').on('click',function(e){
+					if (this.hash && this.hash === location.hash) {
+						e.preventDefault();
+					}
+				});
+	
+				// Set up page
+				if (!location.hash) {
+					location.hash = $('.nav li:first a')[0].hash;
+				} else {
+					togglePanels();
+				}
+			}
 
-			// Set up page
-			if (!location.hash) {
-				location.hash = $('.nav li:first a')[0].hash;
-			} else {
-				togglePanels();
+			function generateNoise(selector){
+
+				var noise = function(opacity) {
+	
+					if (!!!document.createElement('canvas').getContext){
+						return false;
+					}
+					
+					var canvas = document.createElement("canvas"),
+					ctx = canvas.getContext('2d'),
+					x, y,
+					r, g, b,
+					opacity = opacity || .2;
+					
+					canvas.width = 100;
+					canvas.height = 100;
+					
+					ctx = canvas.getContext("2d");
+					
+					for ( x = 0; x < canvas.width; x++ ) {
+						for ( y = 0; y < canvas.height; y++ ) {
+							r = Math.floor( Math.random() * 80 );
+							g = Math.floor( Math.random() * 80 );
+							b = Math.floor( Math.random() * 80 );
+							
+							ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
+							ctx.fillRect(x, y, 1, 1);
+						}
+					}
+					
+					return "url(" + canvas.toDataURL("image/png") + ")";
+				}
+				
+				$(selector).css('background-image',noise);
 			}
 			
+			function insertPrintLink(){
+				$('<a role="button" href="#">Print all wedding info</a>')
+					.on('click',function(e){
+						e.preventDefault();
+						print();
+					})
+						.wrap('<p></p>')
+						.parent()
+							.appendTo('.footer');
+			}
+			
+			paginate();
+			generateNoise('body');
+			insertPrintLink();
+
 		})(jQuery);
 
-		function generateNoise(opacity) {
-		   if ( !!!document.createElement('canvas').getContext ) {
-		      return false;
-		   }
+		// Begin Google Analytics
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-27916540-1']);
+		_gaq.push(['_setDomainName', 'chriscressman.com']);
+		_gaq.push(['_trackPageview']);
 		
-		   var canvas = document.createElement("canvas"),
-		   ctx = canvas.getContext('2d'),
-		   x, y,
-		   r, g, b,
-		   opacity = opacity || .2;
-		
-		   canvas.width = 100;
-		   canvas.height = 100;
-		
-		   ctx = canvas.getContext("2d");
-		
-		   for ( x = 0; x < canvas.width; x++ ) {
-		      for ( y = 0; y < canvas.height; y++ ) {
-		         r = Math.floor( Math.random() * 80 );
-		         g = Math.floor( Math.random() * 80 );
-		         b = Math.floor( Math.random() * 80 );
-		
-		         ctx.fillStyle = "rgba(" + r + "," + g + "," + b + "," + opacity + ")";
-		         ctx.fillRect(x, y, 1, 1);
-		      }
-		   }
-		
-		   document.body.style.backgroundImage = "url(" + canvas.toDataURL("image/png") + ")";
-		}
-		
-		generateNoise(.2);
-		
+		(function() {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+		// End Google Analytics
+
 	</script>
 </body>
 </html>
