@@ -366,12 +366,15 @@
 								.addClass('selected')
 								.siblings()
 									.removeClass('selected');
-					$(window).scrollTop('0');
+					setTimeout(function(){
+						$(window).scrollTop('0');
+					},10);
 				}
 	
 				// Attach events
 				$(window).hashchange(function(){
 					togglePanels();
+					$(this).scrollTop('0');
 				});
 				
 				$('a').on('click',function(e){
