@@ -366,9 +366,12 @@
 								.addClass('selected')
 								.siblings()
 									.removeClass('selected');
+				}
+
+				function resetScroll(){
 					setTimeout(function(){
 						$(window).scrollTop('0');
-					},10);
+					},200);
 				}
 	
 				// Attach events
@@ -386,8 +389,10 @@
 				// Set up page
 				if (!location.hash) {
 					location.hash = $('.nav li:first a')[0].hash;
+					resetScroll();
 				} else {
 					togglePanels();
+					resetScroll();
 				}
 			}
 
