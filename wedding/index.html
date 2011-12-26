@@ -233,7 +233,7 @@
 			</div>
 			<ul class="nav">
 				<li>
-					<a href="#home">Home</a>
+					<a href="#section-home">Home</a>
 				</li>
 				<li>
 					<a href="#schedule">Schedule</a>
@@ -249,7 +249,7 @@
 				</li>
 			</ul>
 			<div class="content">
-				<div id="home" class="section">
+				<div id="section-home" class="section">
 					<h2>From the Bride &amp; Groom</h2>
 					<p class="image">
 						<img alt="" src="images/michelle-and-chris.jpg" />
@@ -263,7 +263,7 @@
 					<p>Our wedding date coincides with Labor Day weekend, so if you plan to attend please mark your calendar early, and thank you for celebrating with us!</p>
 					<p>Love,<br />Michelle &amp; Chris</p>
 				</div>
-				<div id="schedule" class="section">
+				<div id="section-schedule" class="section">
 					<h2>Schedule</h2>
 					<p class="loose">The schedule for the day is as follows:</p>
 					<p class="tight">
@@ -280,7 +280,7 @@
 					</p>
 					<p>All events will be held at <a href="#location">Joseph Ambler Inn</a>.</p>
 				</div>
-				<div id="location" class="section">
+				<div id="section-location" class="section">
 					<h2>Location &amp; Directions</h2>
 					<p class="tight">Joseph Ambler Inn</p>
 					<p class="tight">1005 Horsham Road, North Wales, PA 19454</p>
@@ -304,12 +304,12 @@
 						<a target="_blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">View larger map &amp; get directions</a>
 					</p>
 				</div>
-				<div id="rooms" class="section">
+				<div id="section-rooms" class="section">
 					<h2>Overnight Rooms</h2>
 					<p>A limited number of overnight rooms will be available at <a href="#location">Joseph Ambler Inn</a> for our wedding at a rate of $135.</p>
 					<p>In order to get this special rate, please contact Joseph Ambler Inn and ask to reserve a room for the Michelle Todd - Chris Cressman wedding.</p>
 				</div>
-				<div id="contact" class="section">
+				<div id="section-contact" class="section">
 					<h2>Contact the Bride &amp; Groom</h2>
 					<div id="michelle" class="subsection">
 						<h3>Michelle Todd</h3>
@@ -358,7 +358,7 @@
 				function togglePanels(){
 					$('.section')
 						.removeClass('selected')
-						.filter(location.hash)
+						.filter(function(){return $(this).data('shortHash') === location.hash})
 							.addClass('selected');
 					$('.nav a')
 						.filter(function(){return this.hash === location.hash})
@@ -368,16 +368,9 @@
 									.removeClass('selected');
 				}
 
-				function resetScroll(){
-					setTimeout(function(){
-						$(window).scrollTop('0');
-					},200);
-				}
-	
 				// Attach events
 				$(window).hashchange(function(){
 					togglePanels();
-					$(this).scrollTop('0');
 				});
 				
 				$('a').on('click',function(e){
@@ -387,12 +380,21 @@
 				});
 	
 				// Set up page
+				$('a').each(function(){
+					if (this.hash) {
+						$(this).data('longHash',this.hash);
+						this.hash = this.hash.replace('section-','');
+					}
+				});
+
+				$('.section').each(function(){
+					$(this).data('shortHash','#' + this.id.replace('section-',''));
+				});
+
 				if (!location.hash) {
 					location.hash = $('.nav li:first a')[0].hash;
-					resetScroll();
 				} else {
 					togglePanels();
-					resetScroll();
 				}
 			}
 
