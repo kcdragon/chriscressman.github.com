@@ -77,6 +77,22 @@
 				a img {
 					border: none;
 				}
+			.input {
+			    margin: 2px 0 0;
+			    padding: 3px;
+			    border: 3px solid #5C3A2E;
+			}
+			.input-small {
+			    width: 50px;
+			}
+			.input-large {
+			    width: 200px;
+			}
+			textarea {
+			    width: 200px;
+			    height: 50px;
+			    overflow: auto;
+			}
 			.loose {
 				margin: 0 0 24px;
 			}
@@ -252,6 +268,9 @@
 					<a href="#location">Location</a>
 				</li>
 				<li>
+					<a href="#rsvp">RSVP</a>
+				</li>
+				<li>
 					<a href="#rooms">Rooms</a>
 				</li>
 				<li>
@@ -313,6 +332,40 @@
 					<p class="noprint">
 						<a target="_blank" href="http://maps.google.com/maps?q=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;hl=en&amp;sll=37.0625,-95.677068&amp;sspn=48.374125,84.638672&amp;vpsrc=0&amp;hq=Joseph+Ambler+Inn+1005+Horsham+Road,+North+Wales,+PA+19454&amp;radius=15000&amp;t=m&amp;z=16&amp;iwloc=A">View larger map &amp; get directions</a>
 					</p>
+				</div>
+				<div id="section-rsvp" class="section">
+					<h2>RSVP</h2>
+					<p class="loose">Received an invitation? Please RSVP below:</p>
+                    <form action="https://chriscressman.wufoo.com/forms/z7x3k1/#public" method="post" enctype="multipart/form-data" autocomplete="off">
+                        <input type="hidden" name="Field2" value="" />
+                        <input type="hidden" name="comment" value="" />
+                        <input type="hidden" name="idstamp" value="k5sjZmyan3wAhf3J9l3RM6aH+VoRR56i/oshBhwQEkg=" />
+                        <p>
+                            <label for="Field7">Number of People</label>
+                            <br />
+                            <input type="text" id="Field7" class="input-small input" name="Field7" value="" required="required" />
+                        </p>
+                        <p>
+                            <label for="Field1">Name(s)</label>
+                            <br />
+                            <textarea id="Field1" class="input" name="Field1" spellcheck="false" required="required"></textarea>
+                        </p>
+                        <p>
+                            <input type="radio" id="Field2_0" name="Field2" value="Yes" required="required" />
+                            <label for="Field2_0" >Will attend with pleasure</label>
+                            <br />
+                            <input type="radio" id="Field2_1" name="Field2" value="No" required="required" />
+                            <label for="Field2_1">Must decline with regret</label>
+                        </p>
+                        <p>
+                            <label for="Field5">Email <small>(Optional, but allows us to send you last minute updates or changes)</small></label>
+                            <br />
+                            <input type="email" id="Field5" class="input-large input" name="Field5" spellcheck="false" value="" maxlength="255" />
+                        </p>
+                        <p>
+                            <input type="submit" class="submit" name="saveForm" value="Submit" />
+                        </p>
+                    </form> 
 				</div>
 				<div id="section-rooms" class="section">
 					<h2>Overnight Rooms</h2>
